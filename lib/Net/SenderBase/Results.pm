@@ -1,4 +1,4 @@
-# $Id: Results.pm,v 1.3 2003/07/08 20:29:59 matt Exp $
+# $Id: Results.pm,v 1.4 2003/07/21 15:37:59 matt Exp $
 
 package Net::SenderBase::Results;
 use strict;
@@ -62,8 +62,13 @@ sub parse_data {
     
     foreach my $part (split(/\|/, $self->{raw_data})) {
         my ($key, $value) = split(/=/, $part, 2);
-        die "Unknown key: $key" unless exists($keys{$key});
-        $self->{$keys{$key}} = $value;
+        if (exists($keys{$key})) {
+            $self->{$keys{$key}} = $value;
+        }
+        else {
+            # new key - please inform AUTHOR!
+            $self->{"key_$key"} = $value;
+        }
     }
 }
 
