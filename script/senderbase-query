@@ -1,0 +1,37 @@
+#!/usr/bin/perl
+use Getopt::Euclid;
+use Net::SenderBase;
+$| = 1;
+
+my $addr = $ARGV{'<address>'};
+print "Querying '$addr'...";
+my $query = Net::SenderBase::Query->new(
+   Transport => 'dns',
+   Address => $addr
+);
+my $results = $query->results();
+print "\n\n", $results, "\n";
+
+=head1 NAME
+
+senderbase-query - Command-line tool to query senderbase service
+
+=head1 USAGE
+
+   senderbase-query <address>
+
+=head1 REQUIRED ARGUMENTS
+
+=over
+
+=item <address>
+
+IP or hostname
+
+=back
+
+=head1 AUTHOR
+
+Joenio Costa <joenio@perl.org.br>
+
+Copyright 2011 Colivre.

@@ -1,5 +1,10 @@
 Changes for Net::SenderBase
 
+1.02
+    - Remove HTTP query interface that no longer works
+    - Small improvements and fixes in tests
+    - Command line 'senderbase-query' script to query domains
+
 1.01
     - Minor fix to not die if senderbase adds new keys to the results
 

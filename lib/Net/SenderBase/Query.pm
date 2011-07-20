@@ -21,7 +21,7 @@ sub new {
 
     $attrs{Timeout} ||= $TIMEOUT;
     
-    my $type = uc($attrs{Transport}) || 'DNS';
+    my $type = uc($attrs{Transport} || 'DNS');
     my $query_class = "${class}::${type}";
     load_module($query_class);
     
@@ -65,9 +65,6 @@ This module is a front-end to initiating the query.
 
 This method constructs a new query object. If an error occurs while
 constructing the query an exception will be thrown.
-
-The default transport if not given is 'dns'. The transport is not
-case sensitive.
 
 The C<Address> attribute is required.
 

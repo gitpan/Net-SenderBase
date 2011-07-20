@@ -8,7 +8,7 @@ use Net::SenderBase::Query;
 # Nothing to do in base module except set the version number...
 
 use vars qw($VERSION);
-$VERSION = '1.01';
+$VERSION = '1.02';
 
 1;
 __END__
@@ -31,26 +31,8 @@ Net::SenderBase - Query the senderbase service
 This module is an interface to the SenderBase query service
 at L<http://www.senderbase.org/>.
 
-It allows you to query senderbase either via HTTP, or via DNS.
-The reason you might choose one or the other are:
-
-=over 4
-
-=item HTTP
-
-HTTP is blocking, but more firewalls allow HTTP queries than
-allow DNS queries
-
-=item DNS
-
-DNS queries can be "fired off" early in a script and the results
-collected later. This means your query won't block other subsystems
-in your program.
-
-=back
-
-Both http and dns queries will return a C<Net::SenderBase::Results>
-object.
+It allows you to query senderbase via DNS. Queries will return a
+C<Net::SenderBase::Results> object.
 
 =head1 SEE ALSO
 
@@ -68,6 +50,10 @@ terms as Perl itself.
 Matt Sergeant, <msergeant@messagelabs.com>.
 
 Copyright 2003 MessageLabs Ltd.
+
+Joenio Costa, <joenio@perl.org.br>.
+
+Copyright 2011 Colivre.
 
 =cut
 

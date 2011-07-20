@@ -55,6 +55,11 @@ my %keys = (
     55 => 'ip_latitude',
 );
 
+use overload
+   '""' => sub {
+      join("\n", map { $_ . ': ' . ($_[0]->$_ || '') } sort values %keys);
+   };
+
 my %methods = (ip => 1, raw_data => 1, reverse(%keys));
 
 sub parse_data {
@@ -76,6 +81,7 @@ sub AUTOLOAD {
     my $self = shift;
     my $method = $AUTOLOAD;
     $method =~ s/.*:://;
+    return if $method eq 'DESTROY'; # don't do any work if we are being called for DESTROY
     die "No such method: $method" unless exists($methods{$method});
     return $self->{$method};
 }

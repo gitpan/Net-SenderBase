@@ -17,6 +17,7 @@ WriteMakefile(
     'PREREQ_PM' => {
         'Net::DNS' => 0.23,
         'Test::More' => 0,
+        'Getopt::Euclid' => 0,
     },
     'ABSTRACT_FROM' => 'lib/Net/SenderBase.pm',
     'AUTHOR' => 'Matt Sergeant <matt@sergeant.org>',

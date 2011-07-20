@@ -1,5 +1,8 @@
 CVS/.*
+debian/.*
 \.bak$
+\.do_net$
+\.git/.*
 \.sw[a-z]$
 \.tar$
 \.tgz$
